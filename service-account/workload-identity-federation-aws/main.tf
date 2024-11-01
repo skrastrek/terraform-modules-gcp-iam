@@ -1,8 +1,12 @@
 data "google_iam_workload_identity_pool" "aws" {
+  provider = google-beta
+
   workload_identity_pool_id = var.aws_iam_workload_identity_pool_id
 }
 
 data "google_iam_workload_identity_pool_provider" "aws" {
+  provider = google-beta
+
   workload_identity_pool_id          = var.aws_iam_workload_identity_pool_id
   workload_identity_pool_provider_id = var.aws_iam_workload_identity_pool_provider_id
 

@@ -1,8 +1,12 @@
 data "google_iam_workload_identity_pool" "github_actions" {
+  provider = google-beta
+
   workload_identity_pool_id = var.github_actions_iam_workload_identity_pool_id
 }
 
 data "google_iam_workload_identity_pool_provider" "github_actions" {
+  provider = google-beta
+
   workload_identity_pool_id          = var.github_actions_iam_workload_identity_pool_id
   workload_identity_pool_provider_id = var.github_actions_iam_workload_identity_pool_provider_id
 
