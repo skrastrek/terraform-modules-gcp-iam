@@ -1,5 +1,5 @@
 resource "google_iam_workload_identity_pool" "this" {
-  workload_identity_pool_id = var.id
+  workload_identity_pool_id = var.id != null ? var.id : "github-actions-${var.github_organization}"
 }
 
 resource "google_iam_workload_identity_pool_provider" "this" {

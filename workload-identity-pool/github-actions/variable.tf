@@ -1,5 +1,6 @@
 variable "id" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "github_organization" {
