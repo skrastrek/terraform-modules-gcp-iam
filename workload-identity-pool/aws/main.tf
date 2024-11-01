@@ -1,8 +1,12 @@
 resource "google_iam_workload_identity_pool" "this" {
+  provider = google-beta
+
   workload_identity_pool_id = var.id != null ? var.id : "aws-${var.aws_account_id}"
 }
 
 resource "google_iam_workload_identity_pool_provider" "this" {
+  provider = google-beta
+
   workload_identity_pool_id          = google_iam_workload_identity_pool.this.workload_identity_pool_id
   workload_identity_pool_provider_id = google_iam_workload_identity_pool.this.id
 

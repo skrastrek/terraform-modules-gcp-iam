@@ -19,11 +19,15 @@ data "google_iam_workload_identity_pool_provider" "github_actions" {
 }
 
 resource "google_service_account" "this" {
+  provider = google-beta
+
   account_id  = var.account_id
   description = var.description
 }
 
 resource "google_project_iam_member" "role" {
+  provider = google-beta
+
   for_each = toset(var.iam_member_roles)
 
   project = var.project_id
@@ -32,6 +36,8 @@ resource "google_project_iam_member" "role" {
 }
 
 resource "google_service_account_iam_member" "github_repository_workload_identity_user" {
+  provider = google-beta
+
   service_account_id = google_service_account.this.id
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.github_actions.name}/attribute.repository/${var.github_actions_repository}"
