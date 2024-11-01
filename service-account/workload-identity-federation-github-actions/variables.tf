@@ -24,6 +24,6 @@ variable "github_actions_iam_workload_identity_pool_provider_id" {
   type = string
 }
 
-variable "github_repository" {
+variable "github_actions_repository" {
   type = string
 }

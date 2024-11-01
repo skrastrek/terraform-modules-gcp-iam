@@ -1,5 +1,5 @@
 resource "google_iam_workload_identity_pool" "this" {
-  workload_identity_pool_id = "aws-account-${var.aws_account_id}"
+  workload_identity_pool_id = var.id
 }
 
 resource "google_iam_workload_identity_pool_provider" "this" {
