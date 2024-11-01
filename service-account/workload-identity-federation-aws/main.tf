@@ -1,5 +1,5 @@
 data "google_iam_workload_identity_pool" "aws" {
-  workload_identity_pool_id          = var.aws_iam_workload_identity_pool_id
+  workload_identity_pool_id = var.aws_iam_workload_identity_pool_id
 }
 
 data "google_iam_workload_identity_pool_provider" "aws" {
@@ -8,7 +8,7 @@ data "google_iam_workload_identity_pool_provider" "aws" {
 
   lifecycle {
     postcondition {
-      condition = self.aws[0] != null
+      condition     = self.aws[0] != null
       error_message = "The specificed workload identity pool provider is not configured for federation with AWS."
     }
   }

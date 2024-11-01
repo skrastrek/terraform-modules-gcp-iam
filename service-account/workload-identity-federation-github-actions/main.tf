@@ -1,5 +1,5 @@
 data "google_iam_workload_identity_pool" "github_actions" {
-  workload_identity_pool_id          = var.github_actions_iam_workload_identity_pool_id
+  workload_identity_pool_id = var.github_actions_iam_workload_identity_pool_id
 }
 
 data "google_iam_workload_identity_pool_provider" "github_actions" {
@@ -8,7 +8,7 @@ data "google_iam_workload_identity_pool_provider" "github_actions" {
 
   lifecycle {
     postcondition {
-      condition = self.oidc[0].issuer_uri == "https://token.actions.githubusercontent.com"
+      condition     = self.oidc[0].issuer_uri == "https://token.actions.githubusercontent.com"
       error_message = "The specificed workload identity pool provider is not configured for federation with Github Actions."
     }
   }
