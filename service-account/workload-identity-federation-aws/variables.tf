@@ -16,10 +16,14 @@ variable "iam_member_roles" {
   default = []
 }
 
-variable "github_iam_workload_identity_pool_name" {
+variable "aws_assumed_role_arn" {
   type = string
 }
 
-variable "github_repository" {
+variable "aws_iam_workload_identity_pool_id" {
+  type = string
+}
+
+variable "aws_iam_workload_identity_pool_provider_id" {
   type = string
 }
