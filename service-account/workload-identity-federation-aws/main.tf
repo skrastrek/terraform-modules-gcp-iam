@@ -38,7 +38,9 @@ resource "google_project_iam_member" "role" {
 resource "google_service_account_iam_member" "aws_assumed_role_workload_identity_user" {
   provider = google-beta
 
+  for_each = var.aws_assumed_role_arns
+
   service_account_id = google_service_account.this.id
   role               = "roles/iam.workloadIdentityUser"
-  member             = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.aws.name}/attribute.aws_role_arn/${var.aws_assumed_role_arn}"
+  member             = "principalSet://iam.googleapis.com/${data.google_iam_workload_identity_pool.aws.name}/attribute.aws_role_arn/${each.value}"
 }

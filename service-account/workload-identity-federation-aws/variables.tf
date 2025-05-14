@@ -16,8 +16,9 @@ variable "iam_member_roles" {
   default = []
 }
 
-variable "aws_assumed_role_arn" {
-  type = string
+variable "aws_assumed_role_arns" {
+  type        = set(string)
+  description = "The AWS IAM assumed roles that are allowed to authenticate as the GCP service account."
 }
 
 variable "aws_iam_workload_identity_pool_id" {

@@ -24,6 +24,7 @@ variable "github_actions_iam_workload_identity_pool_provider_id" {
   type = string
 }
 
-variable "github_actions_repository" {
-  type = string
+variable "github_actions_repositories" {
+  type        = set(string)
+  description = "The GitHub Actions repositories that are allowed to authenticate as the GCP service account."
 }
